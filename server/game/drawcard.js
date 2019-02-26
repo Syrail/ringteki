@@ -825,8 +825,7 @@ class DrawCard extends BaseCard {
             militarySkillSummary: this.militarySkillSummary,
             politicalSkillSummary: this.politicalSkillSummary,
             glorySummary: this.glorySummary,
-            controller: this.controller.getShortSummary()
-            covert: this.covert,
+            controller: this.controller.getShortSummary(),
             unique: this.cardData.unicity
         });
     }

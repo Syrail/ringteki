@@ -802,6 +802,13 @@ class DrawCard extends BaseCard {
             childCards: this.childCards.map(card => {
                 return card.getSummary(activePlayer, hideWhenFaceup);
             }),
+            clan: this.getPrintedFaction(),
+            name: this.cardData.name,
+            text: this.cardData.text,
+            mil: (this.cardData.type === CardTypes.Attachment) ? this.getMilitarySkill(false) : this.getMilitarySkill(true),
+            pol: (this.cardData.type === CardTypes.Attachment) ? this.getPoliticalSkill(false) : this.getPoliticalSkill(true),
+            glory: this.getGlory(),
+            cost: this.getCost(),
             inConflict: this.inConflict,
             isConflict: this.isConflict,
             isDynasty: this.isDynasty,
@@ -811,6 +818,7 @@ class DrawCard extends BaseCard {
             isPlayableByOpponent: this.isConflict && this.controller.opponent && this.controller.opponent.isCardInPlayableLocation(this, PlayTypes.PlayFromHand),
             bowed: this.bowed,
             fate: this.fate,
+            flavor: this.cardData.flavor,
             new: this.new,
             covert: this.covert,
             showStats: this.showStats,
@@ -818,6 +826,8 @@ class DrawCard extends BaseCard {
             politicalSkillSummary: this.politicalSkillSummary,
             glorySummary: this.glorySummary,
             controller: this.controller.getShortSummary()
+            covert: this.covert,
+            unique: this.cardData.unicity
         });
     }
 }
